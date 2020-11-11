@@ -16,7 +16,7 @@ paquetesContenidos(paquete) ::= <<
   <packages_contenidos
       nombre="$paquete.nombre$">
       $paquete.clasesContenidas:clasesContenidas()$
-      $paquete.interfaces:interfacesContenidas()$
+      $paquete.interfacesContenidas:interfacesContenidas()$
   </packages_contenidos>$\n$ $\n$
 >>
 

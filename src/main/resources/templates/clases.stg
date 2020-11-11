@@ -10,8 +10,13 @@ clasesContenidas(clase) ::= <<
         $endif$
         $if(clase.esAuditable)$esAuditable="$clase.esAuditable$"
         $endif$
+        $if(clase.tieneABM)$tieneABM="$clase.tieneABM$"
+        $endif$
+        $if(clase.esAsociativa)$esAsociativa="$clase.esAsociativa$"
+        $endif$
         >
-        $clase.atributos:atributosContenidos()$
-        $clase.metodos:metodosContenidos()$
+        $clase.atributosContenidos:atributosContenidos()$
+        $clase.operacionesContenidas:metodosContenidos()$
+
     </clasificadores_contenidos>$\n$
 >>

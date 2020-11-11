@@ -7,7 +7,7 @@ metodosContenidos(metodo) ::= <<
           $endif$
           parametros ="$metodo.parametros$"
          >
-       <endpoint $\n$ nombrePublicado="endPoint$metodo.nombre$"/>
+
       </operaciones_contenidas>$\n$
 >>
 
