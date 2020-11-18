@@ -1,0 +1,20 @@
+
+endPointContenido(endPoint) ::= <<
+$if(endPoint)$
+ <endpoint
+
+  $if(endPoint.tipoVerbo)$tipoVerbo="$endPoint.tipoVerbo$"
+  $endif$
+
+  $if(endPoint.tipoTransferenciaEntrada)$tipoTransferenciaEntrada="$endPoint.tipoTransferenciaEntrada$"
+  $endif$
+
+  $if(endPoint.tipoTransferenciaSalida)$tipoTransferenciaSalida="$endPoint.tipoTransferenciaSalida$"
+  $endif$
+
+  $if(endPoint.nombrePublicado)$nombrePublicado="$endPoint.nombrePublicado$"
+  $endif$
+
+/>
+$endif$
+>>

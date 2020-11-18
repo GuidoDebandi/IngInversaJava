@@ -1,0 +1,4 @@
+
+realizacionContenida(realizacion) ::= <<
+"//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$realizacion.destino.indice$", $\n$
+>>

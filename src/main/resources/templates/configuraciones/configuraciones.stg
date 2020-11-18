@@ -1,0 +1,14 @@
+
+import "configuracionDB.stg"
+import "configuracionDocker.stg"
+import "configuracionLenguaje.stg"
+import "configuracionMicroservicios.stg"
+
+configuraciones() ::= <<
+
+    $diagrama.configuracionesDB:configuracionDBContenida()$
+    $diagrama.configuracionesDocker:configuracionDockerContenida()$
+    $diagrama.configuracionesLenguaje:configuracionLenguajeContenida()$
+    $diagrama.configuracionesMicroservicios:configuracionMicroserviciosContenida()$
+
+>>

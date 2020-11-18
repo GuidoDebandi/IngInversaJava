@@ -1,0 +1,27 @@
+
+
+parametroContenido(parametro) ::= <<
+ <parametros_contenidos
+
+          nombre="$parametro.nombre$"
+
+          visibilidad="$parametro.visibilidad$"
+
+          tipo="$parametro.tipo$"
+
+          $if(parametro.esAuditable)$esAuditable="$parametro.esAuditable$"
+          $endif$
+
+          $if(parametro.esFinal)$esFinal="$parametro.esFinal$"
+          $endif$
+
+          $if(parametro.esStatic)$esStatic="$parametro.esStatic$"
+          $endif$
+
+          $if(parametro.pseudonimo)$pseudonimo="$parametro.pseudonimo$"
+          $endif$
+
+
+          />
+
+>>

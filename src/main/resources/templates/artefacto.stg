@@ -1,0 +1,15 @@
+
+artefactoContenido(artefacto) ::= <<
+
+
+   <artefacto_contenido
+
+               nombre="$artefacto.nombre$"
+               grupoId="$artefacto.grupoId$"
+               artefactoId="$artefacto.artefactoId$"
+               descripcion="$artefacto.descripcion$"
+               version="$artefacto.version$"
+
+    />
+
+>>

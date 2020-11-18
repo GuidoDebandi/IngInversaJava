@@ -1,0 +1,15 @@
+
+herenciasContenidas(herencias,indicePackage) ::= <<
+
+$herencias:iterarHerencias()$
+
+>>
+
+iterarHerencias(herencia) ::= <<
+
+   <herencias_contenidas
+              origen="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$herencia.origen.indice$"
+              destino="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$herencia.destino.indice$"
+    />
+
+>>

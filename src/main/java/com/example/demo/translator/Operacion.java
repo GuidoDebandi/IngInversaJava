@@ -9,12 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Operacion extends Retornable{
 
+    private String tipoRetorno;
     private String esAbstracta;
+    private List<String> parametrosContenidos = new ArrayList<>();
 
-    private List<Retornable> parametrosContenidos = new ArrayList<>();
+
+    //no se cargan
+    private List<ParametroInterno> parametrosInternos = new ArrayList<>();
+    private EndPoint endPoint;
+
 }
+
+

@@ -1,0 +1,15 @@
+
+configuracionDockerContenida(configuracion) ::= <<
+
+      <configuraciondocker
+
+        nombreContenedor="$configuracion.nombreContenedor$"
+        puertoInterior="$configuracion.puertoInterior$"
+        tipoReinicio="$configuracion.tipoReinicio$"
+        nombreImagen="$configuracion.nombreImagen$"
+
+      />
+
+
+>>
+

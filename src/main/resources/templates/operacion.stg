@@ -1,0 +1,35 @@
+
+import "parametro.stg"
+import "parametroInterno.stg"
+import "endPoint.stg"
+
+operacionContenida(operacion) ::= <<
+ <operaciones_contenidas
+
+          nombre="$operacion.nombre$"
+
+          visibilidad="$operacion.visibilidad$"
+
+          $if(operacion.retorno)$tipoRetorno="$operacion.retorno$"
+          $endif$
+
+          $if(operacion.esFinal)$esFinal="$operacion.esFinal$"
+          $endif$
+
+          $if(operacion.esStatic)$esStatic="$operacion.esStatic$"
+          $endif$
+
+          $if(operacion.esAbstracta)$esAbstracta="$operacion.esAbstracta$"
+          $endif$
+         >
+       $operacion.parametrosContenidos:parametroContenido()$
+       $operacion.parametrosInternos:parametroInternoContenido()$
+
+        $endPointContenido(operacion.endPoint)$
+
+      </operaciones_contenidas>$\n$
+>>
+
+
+
+

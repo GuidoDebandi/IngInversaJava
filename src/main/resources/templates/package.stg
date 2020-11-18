@@ -1,0 +1,9 @@
+
+import "clasificador.stg"
+
+packageContenido(package) ::= <<
+  <packages_contenidos
+      nombre="$package.nombre$">
+$clasificadoresContenidos(package.clasificadoresContenidos,package.indice)$
+  </packages_contenidos>$\n$ $\n$
+>>

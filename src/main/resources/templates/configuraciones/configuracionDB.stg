@@ -1,0 +1,16 @@
+
+configuracionDBContenida(configuracion) ::= <<
+
+   <configuraciondb
+
+               dbNombre="$configuracion.dbNombre$"
+               dbUsuario="$configuracion.dbUsuario$"
+               dbPuerto="$configuracion.dbPuerto$"
+               ip="$configuracion.ip$"
+               dbContrasena="$configuracion.dbConstrasena$"
+               serverPuerto="$configuracion.serverPuerto$"
+               tipoProveedor="$configuracion.tipoProveedor$"
+
+    />
+
+>>

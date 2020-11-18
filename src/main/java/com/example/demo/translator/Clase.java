@@ -1,29 +1,26 @@
 package com.example.demo.translator;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@Builder
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-public class Clase extends Clasificador{
-
+@AllArgsConstructor
+@Builder
+public class Clase extends Clasificador {
 
     private String esAbstracta;
+    private String esAsociativa; //falta
+    private String esAuditable; //falta
+    private String tieneABM; //falta
+    private List<Relacion> relacionesContenidas= new ArrayList<>();
+    private List<Realizacion>  realizacionesContenidas= new ArrayList<>();
 
-    private String esAuditable;
+    //auxiliares
+    private List<String> implementaciones = new ArrayList<>();
+    private boolean esControlador = false;
 
-    private String tieneABM;
-
-    private String esAsociativa;
-
-    private List<Realizacion> realizacionesContenidas = new ArrayList<>();
-
-    private List<Relacion> relacionesContenidas = new ArrayList<>();
 }

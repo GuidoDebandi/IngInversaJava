@@ -1,0 +1,42 @@
+
+import "realizacion.stg"
+import "atributo.stg"
+import "operacion.stg"
+import "herencia.stg"
+import "relacion.stg"
+
+clasificadoresContenidos(clasificadores,indicePackage) ::= <<
+ $clasificadores:iterarClasificadores()$
+
+</clasificadores_contenidos>$\n$
+>>
+
+iterarClasificadores(clasificador) ::= <<
+
+    <clasificadores_contenidos
+        xsi:type="diagramaClasesCompleto:$clasificador.tipo$"
+        nombre="$clasificador.nombre$"
+        $if(clasificador.esAbstracta)$esAbstracta="$clasificador.esAbstracta$"
+        $endif$
+        $if(clasificador.esAsociativa)$esAsociativa="$clasificador.esAsociativa$"
+        $endif$
+        $if(clasificador.esAuditable)$esAuditable="$clasificador.esAuditable$"
+        $endif$
+        $if(clasificador.tieneABM)$tieneABM="$clasificador.tieneABM$"
+        $endif$
+
+     >
+$if(clasificador.realizacionesContenidas)$
+ interfaces_implementadas=$clasificador.realizacionesContenidas:realizacionContenida()$>
+$endif$
+
+ $clasificador.atributosContenidos:atributoContenido()$
+
+ $clasificador.operacionesContenidas:operacionContenida()$
+
+ $herenciasContenidas(clasificador.herenciasContenidas,indicePackage)$
+
+ $relacionesContenidas(clasificador.relacionesContenidas,indicePackage)$
+
+   </clasificadores_contenidos>
+>>

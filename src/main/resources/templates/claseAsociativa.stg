@@ -1,0 +1,8 @@
+
+claseAsociativaContenida(claseAsociativa) ::= <<
+
+        <clases_asociativas_contenidas
+         nombre="$claseAsociativa.nombre$" esAsociativa="true"
+        />
+
+>>

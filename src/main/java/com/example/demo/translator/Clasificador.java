@@ -1,21 +1,26 @@
 package com.example.demo.translator;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+public abstract class Clasificador {
 
-public class Clasificador {
+    protected String nombre;
+    protected List<Herencia> herenciasContenidas= new ArrayList<>();
+    protected List<Operacion> operacionesContenidas= new ArrayList<>();
+    protected List<Atributo> atributosContenidos= new ArrayList<>();
 
-    private String nombre;
+    //Auxiliares
+    protected String tipo;
+    protected int indice;
+    protected int indicePackage;
 
-    private List<Herencia> herenciasContenidas = new ArrayList<>();
-
-    private List<Atributo> atributosContenidos = new ArrayList<>();
-
-    private List<Operacion> operacionesContenidas = new ArrayList<>();
-
+    private String nombrePaquete; //nombre del paquete al cual pertenece
+    private List<String> herencias = new ArrayList<>(); //lista de clasificadores padre
 
 }

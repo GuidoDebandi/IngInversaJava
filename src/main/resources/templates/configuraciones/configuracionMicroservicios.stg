@@ -1,0 +1,13 @@
+
+configuracionMicroserviciosContenida(configuracion) ::= <<
+
+        <configuracionmicroservicios
+
+        ipDiscovery="$configuracion.ipDiscovery$"
+        puertoDiscovery="$configuracion.puertoDiscovery$"
+
+      />
+
+
+>>
+
