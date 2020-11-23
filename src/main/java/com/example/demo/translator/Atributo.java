@@ -2,22 +2,20 @@ package com.example.demo.translator;
 
 
 import com.example.demo.translator.enumeraciones.RepresentacionGrafica;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+
 public class Atributo extends Retornable{
 
     private String tipo;
-    private String esAuditable;
-    private String pseudonimo;
+    private String esAuditable; //falta
+    private String pseudonimo;  //falta
 
-
+    //no se cargan
     private RepresentacionGrafica representacionGrafica= RepresentacionGrafica.text;
 
 

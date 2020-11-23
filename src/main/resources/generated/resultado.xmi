@@ -1,0 +1,58 @@
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <diagramaClasesCompleto:DiagramaClases
+        xmi:version="2.0"
+        xmlns:xmi="http://www.omg.org/XMI"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:diagramaClasesCompleto="http://www.example.org/diagramaClasesCompleto"
+        xsi:schemaLocation="http://www.example.org/diagramaClasesCompleto diagramaClasesCompleto.ecore">
+          <packages_contenidos nombre="negocio">
+            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Alumno"
+            >
+                <realizaciones_contenidas destino="//@packages_contenidos.0/@clasificadores_contenidos.0"
+                 origen="//@packages_contenidos.0/@clasificadores_contenidos.1">
+                <realizaciones_contenidas destino="//@packages_contenidos.0/@clasificadores_contenidos."
+                 origen="//@packages_contenidos.0/@clasificadores_contenidos.">
+
+
+                 <atributos_contenidos
+
+                          nombre="legajo"
+
+                          visibilidad="private"
+
+                          tipo="int"
+
+                          representacionGrafica="text"
+                          />
+
+
+
+
+
+
+
+             </clasificadores_contenidos><clasificadores_contenidos xsi:type="diagramaClasesCompleto:Interface" nombre="Saltador"
+            >
+
+
+
+
+
+
+             </clasificadores_contenidos>
+          </packages_contenidos>
+
+
+           <artefacto_contenido
+
+                       nombre=""
+                       grupoId=""
+                       artefactoId=""
+                       descripcion=""
+                       version=""
+
+            />
+
+
+    </diagramaClasesCompleto:DiagramaClases>

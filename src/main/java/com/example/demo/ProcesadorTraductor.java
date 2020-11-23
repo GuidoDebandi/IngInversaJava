@@ -1,12 +1,12 @@
 package com.example.demo;
 
 import com.example.demo.translator.*;
-
 import com.example.demo.translator.Package;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Procesador {
+public class ProcesadorTraductor {
 
     public List<Package> procesar(List<Clasificador> clasificadorList){
         List<Package> packageList = new ArrayList<>();

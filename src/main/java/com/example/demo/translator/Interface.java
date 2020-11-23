@@ -7,8 +7,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
+
 @Builder
 public class Interface extends Clasificador {
 
+    public Interface() {
+    }
 }

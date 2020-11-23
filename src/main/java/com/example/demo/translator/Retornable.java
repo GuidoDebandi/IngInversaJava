@@ -1,8 +1,10 @@
 package com.example.demo.translator;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public abstract class Retornable {
 
     protected String nombre;
