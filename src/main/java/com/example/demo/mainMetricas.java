@@ -1,10 +1,12 @@
 package com.example.demo;
 
 
-import com.example.demo.entities.Atributo;
-import com.example.demo.entities.Clase;
-import com.example.demo.entities.Metodo;
-import com.example.demo.gen.*;
+import com.example.demo.model.metrics.Clase;
+import com.example.demo.gen.java.JavaLexer;
+import com.example.demo.gen.java.JavaParser;
+import com.example.demo.gen.metrics.VisitorAtributoMetodo;
+import com.example.demo.gen.metrics.VisitorClase;
+import com.example.demo.gen.metrics.VisitorMetricas;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;

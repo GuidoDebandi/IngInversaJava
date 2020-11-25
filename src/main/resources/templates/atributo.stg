@@ -1,28 +1,5 @@
 
 atributoContenido(atributo) ::= <<
- <atributos_contenidos
-
-          nombre="$atributo.nombre$"
-
-          visibilidad="$atributo.visibilidad$"
-
-          tipo="$atributo.tipo$"
-
-          $if(atributo.esAuditable)$esAuditable="$atributo.esAuditable$"
-          $endif$
-
-          $if(atributo.esFinal)$esFinal="$atributo.esFinal$"
-          $endif$
-
-          $if(atributo.esStatic)$esStatic="$atributo.esStatic$"
-          $endif$
-
-          $if(atributo.pseudonimo)$pseudonimo="$atributo.pseudonimo$"
-          $endif$
-
-          $if(atributo.representacionGrafica)$representacionGrafica="$atributo.representacionGrafica$"
-          $endif$
-
-          />
+ <atributos_contenidos nombre="$atributo.nombre$" visibilidad="$atributo.visibilidad$" tipo="$atributo.tipo$" pseudonimo="$atributo.pseudonimo$"$if(atributo.esAuditable)$ esAuditable="true"$endif$$if(atributo.esStatic)$ esStatic="true"$endif$$if(atributo.esFinal)$ esFinal="true"$endif$/>
 
 >>

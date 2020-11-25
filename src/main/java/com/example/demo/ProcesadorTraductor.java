@@ -1,15 +1,12 @@
 package com.example.demo;
 
-import com.example.demo.translator.*;
-import com.example.demo.translator.Package;
+import com.example.demo.model.translator.*;
+import com.example.demo.model.translator.Package;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProcesadorTraductor {
-
-    public List<Package> procesar(List<Clasificador> clasificadorList){
-        List<Package> packageList = new ArrayList<>();
+    public static void procesar(List<Clasificador> clasificadorList,DiagramaClases diagrama){
         //recorro todas los clasificadores
         for (Clasificador c : clasificadorList) {
             //si tiene herencias
@@ -32,7 +29,7 @@ public class ProcesadorTraductor {
                 }
             }
             //si es una clase
-            if(c.getClass().getTypeName().equals("com.example.demo.translator.Clase")){
+            if(c.getClass().getTypeName().equals("com.example.demo.model.translator.Clase")){
                 //si tiene realizaciones
                 if(((Clase)c).getImplementaciones().size()>0){
                     //recorro el vector que almacena los nombres de las interfaces implementadas
@@ -63,6 +60,7 @@ public class ProcesadorTraductor {
                 }
                 //si la clase es un Controlador
                 if(((Clase)c).isEsControlador()){
+
                     //almaceno el nombre del controlador
                     String claseController = c.getNombre().replaceAll("Controller","");
                     //recorro las clases
@@ -73,36 +71,35 @@ public class ProcesadorTraductor {
                         }
                     }
                 }
-                //crea el paquete
-                if(!(packageList.size()>0)){
-                    //crea el primer paquete de todos, y le agrega el clasificador actual
-                    Package paquete = new Package();
-                    paquete.setNombre(c.getNombrePaquete());
-                    paquete.getClasificadoresContenidos().add(c);
-                    packageList.add(paquete);
-                }else{
+
+            }
+            //crea el paquete
+            if(!(diagrama.getPackagesContenidos().size()>0)){
+                //crea el primer paquete de todos, y le agrega el clasificador actual
+                Package paquete = new Package();
+                paquete.setNombre(c.getNombrePaquete());
+                paquete.getClasificadoresContenidos().add(c);
+                diagrama.getPackagesContenidos().add(paquete);
+            }else{
                     /*
                     revisa que el paquete ya haya sido creado:
                       Si fue creado, le agrega el clasificador actual
                       Si no fue creado, crea un paquete nuevo y le agrega el clasificador actual
                     */
-                    boolean controlAux = true; //vale true si el paquete no existe, false caso contrario
-                    for (Package paquete : packageList) {
-                        if(paquete.getNombre().equals(c.getNombrePaquete())){
-                            paquete.getClasificadoresContenidos().add(c);
-                            controlAux = false;
-                        }
-                    }
-                    if(controlAux){
-                        Package paquete = new Package();
-                        paquete.setNombre(c.getNombrePaquete());
+                boolean controlAux = true; //vale true si el paquete no existe, false caso contrario
+                for (Package paquete : diagrama.getPackagesContenidos()) {
+                    if(paquete.getNombre().equals(c.getNombrePaquete())){
                         paquete.getClasificadoresContenidos().add(c);
-                        packageList.add(paquete);
+                        controlAux = false;
                     }
+                }
+                if(controlAux){
+                    Package paquete = new Package();
+                    paquete.setNombre(c.getNombrePaquete());
+                    paquete.getClasificadoresContenidos().add(c);
+                    diagrama.getPackagesContenidos().add(paquete);
                 }
             }
         }
-        return packageList;
     }
-
 }

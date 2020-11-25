@@ -2,41 +2,10 @@
 import "claseAsociativa.stg"
 
 relacionesContenidas(relaciones,indicePackage) ::= <<
-
 $relaciones:iterarRelaciones()$
-
 >>
 
 iterarRelaciones(relacion) ::= <<
-
-
-      <relaciones_contenidas
-
-          destino="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.destino.indice$"
-
-          nombre="$relacion.nombre$"
-
-          tipo="$relacion.tipo$"
-
-          multiplicidad="$relacion.multiplicidad$"
-
-          origen="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.origen.indice$"
-
-          visibilidad="$relacion.visibilidad$"
-
-          $if(relacion.esFinal)$esFinal="$relacion.esFinal$"
-          $endif$
-
-          $if(relacion.esStatic)$esStatic="$relacion.esStatic$"
-          $endif$
-
-          $if(relacion.tipoABM)$tipoABM="$relacion.tipoABM$"
-          $endif$
-
-          $relacion.clasesAsociativasContenidas:claseAsociativaContenida()$
-
-
-          />
-          $\n$
+<relaciones_contenidas nombre="$relacion.nombre$" $if(relacion.tipo)$tipo="$relacion.tipo$" $endif$visibilidad="$relacion.visibilidad$" multiplicidad="$relacion.multiplicidad$" destino="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.destino.indice$" origen="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.origen.indice$"/>
 
 >>

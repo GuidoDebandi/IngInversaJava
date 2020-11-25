@@ -6,37 +6,26 @@ import "herencia.stg"
 import "relacion.stg"
 
 clasificadoresContenidos(clasificadores,indicePackage) ::= <<
- $clasificadores:iterarClasificadores()$
-
-</clasificadores_contenidos>$\n$
+$clasificadores:iterarClasificadores()$
 >>
 
 iterarClasificadores(clasificador) ::= <<
-
-    <clasificadores_contenidos
-        xsi:type="diagramaClasesCompleto:$clasificador.tipo$"
-        nombre="$clasificador.nombre$"
-        $if(clasificador.esAbstracta)$esAbstracta="$clasificador.esAbstracta$"
-        $endif$
-        $if(clasificador.esAsociativa)$esAsociativa="$clasificador.esAsociativa$"
-        $endif$
-        $if(clasificador.esAuditable)$esAuditable="$clasificador.esAuditable$"
-        $endif$
-        $if(clasificador.tieneABM)$tieneABM="$clasificador.tieneABM$"
-        $endif$
-
-     >
+<clasificadores_contenidos xsi:type="diagramaClasesCompleto:$clasificador.tipo$" nombre="$clasificador.nombre$"$if(clasificador.esAbstracta)$ esAbstracta="true"$endif$$if(clasificador.esAsociativa)$ esAsociativa="true"$endif$$if(clasificador.esAuditable)$ esAuditable="true"$endif$$if(clasificador.tieneABM)$ tieneABM="true"$endif$>
 $if(clasificador.realizacionesContenidas)$
- interfaces_implementadas=$clasificador.realizacionesContenidas:realizacionContenida()$>
+    $realizacionesContenidas(clasificador.realizacionesContenidas,indicePackage)$
 $endif$
+$if(clasificador.herenciasContenidas)$
+    $herenciasContenidas(clasificador.herenciasContenidas,indicePackage)$
+$endif$
+$if(clasificador.atributosContenidos)$
+    $clasificador.atributosContenidos:atributoContenido()$
+$endif$
+$if(clasificador.operacionesContenidas)$
+    $clasificador.operacionesContenidas:operacionContenida()$
+$endif$
+$if(clasificador.relacionesContenidas)$
+    $relacionesContenidas(clasificador.relacionesContenidas,indicePackage)$
+$endif$
+</clasificadores_contenidos>
 
- $clasificador.atributosContenidos:atributoContenido()$
-
- $clasificador.operacionesContenidas:operacionContenida()$
-
- $herenciasContenidas(clasificador.herenciasContenidas,indicePackage)$
-
- $relacionesContenidas(clasificador.relacionesContenidas,indicePackage)$
-
-   </clasificadores_contenidos>
 >>

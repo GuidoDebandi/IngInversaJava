@@ -1,8 +1,0 @@
-
-parametroInternoContenido(parametroInterno) ::= <<
-<parametros_internos
-
-tipo=$parametroInterno.tipo$
-
-/> $\n$
->>

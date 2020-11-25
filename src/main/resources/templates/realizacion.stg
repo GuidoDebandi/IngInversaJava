@@ -1,10 +1,9 @@
 
-realizacionContenida(realizacion) ::= <<
-"//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$realizacion.destino.indice$", $\n$
+realizacionesContenidas(realizaciones,indicePackage) ::= <<
+$realizaciones:iterarRealizacion()$
 >>
 
 iterarRealizacion(realizacion) ::= <<
-<realizaciones_contenidas destino="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$realizacion.destino.indice$"
- origen="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$realizacion.origen.indice$">
+<realizaciones_contenidas destino="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$realizacion.destino.indice$" origen="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$realizacion.origen.indice$"/>
 
 >>
