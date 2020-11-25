@@ -19,9 +19,7 @@ public class Package {
     private List<Clasificador> clasificadoresContenidos = new ArrayList<>();
 
     //Auxiliar
-    private int indice;
-
-
-
+    private int indice;//variable que necesita StringTemplate para armar las Relaciones,Herencias,Realizaciones
+    public static int contadorClasificadores = 0; //variable global para poder asignar el indice
 
 }

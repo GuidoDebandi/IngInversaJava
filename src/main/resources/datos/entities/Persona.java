@@ -22,7 +22,7 @@ import java.util.List;
 @Audited
 @NoArgsConstructor
 @AllArgsConstructor
-public class Persona {
+public class Persona implements Volador {
 
     public final int asd;
 

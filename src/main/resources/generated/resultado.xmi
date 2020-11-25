@@ -2,24 +2,18 @@
 <diagramaClasesCompleto:DiagramaClases xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagramaClasesCompleto="http://www.example.org/diagramaClasesCompleto"
     xsi:schemaLocation="http://www.example.org/diagramaClasesCompleto diagramaClasesCompleto.ecore">
-          <packages_contenidos nombre="Controllers">
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="PersonaController">
-            </clasificadores_contenidos>
-
-          </packages_contenidos><packages_contenidos nombre="entities">
+          <packages_contenidos nombre="entities">
             <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Autor" esAuditable="true">
                  <atributos_contenidos nombre="nombre" visibilidad="private" tipo="String" pseudonimo="nombre"/>
                  <atributos_contenidos nombre="apellido" visibilidad="private" tipo="String" pseudonimo="apellido"/>
                  <atributos_contenidos nombre="biografia" visibilidad="private" tipo="String" pseudonimo="biografia"/>
 
             </clasificadores_contenidos>
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Base" esAbstracta="true">
-            </clasificadores_contenidos>
             <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Domicilio" esAuditable="true">
                  <atributos_contenidos nombre="calle" visibilidad="private" tipo="String" pseudonimo="calle"/>
                  <atributos_contenidos nombre="numero" visibilidad="private" tipo="int" pseudonimo="numero"/>
 
-                <relaciones_contenidas nombre="localidad" visibilidad="private" multiplicidad="manyToOne" destino="//@packages_contenidos.0/@clasificadores_contenidos.5" origen="//@packages_contenidos.0/@clasificadores_contenidos.3"/>
+                <relaciones_contenidas nombre="localidad" tipo="unidireccional" visibilidad="private" multiplicidad="manyToOne"  destino="//@packages_contenidos.0/@clasificadores_contenidos.3" origen="//@packages_contenidos.0/@clasificadores_contenidos.1"/>
 
             </clasificadores_contenidos>
             <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Libro" esAuditable="true">
@@ -28,7 +22,7 @@
                  <atributos_contenidos nombre="genero" visibilidad="private" tipo="String" pseudonimo="genero"/>
                  <atributos_contenidos nombre="paginas" visibilidad="private" tipo="int" pseudonimo="paginas"/>
 
-                <relaciones_contenidas nombre="autores" visibilidad="private" multiplicidad="manyToMany" destino="//@packages_contenidos.0/@clasificadores_contenidos.1" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
+                <relaciones_contenidas nombre="autores" tipo="unidireccional" visibilidad="private" multiplicidad="manyToMany"  destino="//@packages_contenidos.0/@clasificadores_contenidos.0" origen="//@packages_contenidos.0/@clasificadores_contenidos.2"/>
 
             </clasificadores_contenidos>
             <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Localidad" esAuditable="true">
@@ -36,6 +30,8 @@
 
             </clasificadores_contenidos>
             <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Persona" esAuditable="true" tieneABM="true">
+                <realizaciones_contenidas destino="//@packages_contenidos.0/@clasificadores_contenidos.5" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
+
                  <atributos_contenidos nombre="asd" visibilidad="public" tipo="int" pseudonimo="asd" esFinal="true"/>
                  <atributos_contenidos nombre="nombre" visibilidad="private" tipo="String" pseudonimo="nombre"/>
                  <atributos_contenidos nombre="apellido" visibilidad="private" tipo="String" pseudonimo="apellido"/>
@@ -50,8 +46,8 @@
                  <operaciones_contenidas nombre="cantar" visibilidad="public" tipoRetorno="void" esAbstracta="true">
                  </operaciones_contenidas>
 
-                <relaciones_contenidas nombre="domicilio" visibilidad="private" multiplicidad="oneToOne" destino="//@packages_contenidos.0/@clasificadores_contenidos.3" origen="//@packages_contenidos.0/@clasificadores_contenidos.6"/>
-                <relaciones_contenidas nombre="libros" visibilidad="private" multiplicidad="oneToMany" destino="//@packages_contenidos.0/@clasificadores_contenidos.4" origen="//@packages_contenidos.0/@clasificadores_contenidos.6"/>
+                <relaciones_contenidas nombre="domicilio" tipo="bidireccional" visibilidad="private" multiplicidad="oneToOne"  destino="//@packages_contenidos.0/@clasificadores_contenidos.1" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
+                <relaciones_contenidas nombre="libros" tipo="bidireccional" visibilidad="private" multiplicidad="oneToMany"  destino="//@packages_contenidos.0/@clasificadores_contenidos.2" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
 
             </clasificadores_contenidos>
             <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Interface" nombre="Volador">
@@ -67,4 +63,5 @@
             </clasificadores_contenidos>
 
           </packages_contenidos>
+
 </diagramaClasesCompleto:DiagramaClases>

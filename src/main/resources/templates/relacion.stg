@@ -6,6 +6,6 @@ $relaciones:iterarRelaciones()$
 >>
 
 iterarRelaciones(relacion) ::= <<
-<relaciones_contenidas nombre="$relacion.nombre$" $if(relacion.tipo)$tipo="$relacion.tipo$" $endif$visibilidad="$relacion.visibilidad$" multiplicidad="$relacion.multiplicidad$" destino="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.destino.indice$" origen="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.origen.indice$"/>
+<relaciones_contenidas nombre="$relacion.nombre$" $if(relacion.tipo)$tipo="$relacion.tipo$" $endif$visibilidad="$relacion.visibilidad$" $if(relacion.multiplicidad)$multiplicidad="$relacion.multiplicidad$" $endif$ destino="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.destino.indice$" origen="//@packages_contenidos.$indicePackage$/@clasificadores_contenidos.$relacion.origen.indice$"/>
 
 >>

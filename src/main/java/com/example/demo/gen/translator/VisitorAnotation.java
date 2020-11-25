@@ -17,7 +17,17 @@ public class VisitorAnotation {
             switch (anotacion){
                 case "Audited": ((Clase)visitorTraductorMain.getClasificador()).setEsAuditable("esAuditable");
                                 break;
-                case "RestController": ((Clase)visitorTraductorMain.getClasificador()).setEsControlador(true);
+                case "RestController": visitorTraductorMain.getClasificador().setEsControlador(true);
+                                break;
+                case "Service": visitorTraductorMain.getClasificador().setEsServicio(true);
+                                break;
+                case "Repository": visitorTraductorMain.getClasificador().setEsRepositorio(true);
+                                break;
+                case "NoRepositoryBean": visitorTraductorMain.getClasificador().setEsRepositorio(true);
+                                break;
+                case "MappedSuperclass": ((Clase)visitorTraductorMain.getClasificador()).setEsBase(true);
+                                break;
+                case "RevisionEntity": ((Clase)visitorTraductorMain.getClasificador()).setEsRevision(true);
                                 break;
             }
         //si es anotacion de atributo/relacion

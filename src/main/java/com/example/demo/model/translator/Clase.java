@@ -24,6 +24,8 @@ public class Clase extends Clasificador {
 
     //auxiliares
     private List<String> implementaciones = new ArrayList<>();
-    private boolean esControlador = false;
+
+
+    private boolean esRevision = false;//bandera para saber si es una clase de Revision
 
 }

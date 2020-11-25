@@ -9,8 +9,6 @@ public class VisitorTypeDeclaration {
     public static void visitClassDeclaration(JavaParser.ClassDeclarationContext ctx, Clase clasificador, String nombrePaquete){
         clasificador.setNombre(ctx.IDENTIFIER().getText());
         clasificador.setTipo("Clase"); //valor auxiliar para StringTemplate
-        clasificador.setIndice(Clasificador.contadorClasificadores);//valor auxiliar para StringTemplate
-        Clasificador.contadorClasificadores++;
         clasificador.setNombrePaquete(nombrePaquete);
         //Guarda el nombre de la superclase, si tiene
         if (ctx.children.contains(ctx.EXTENDS())) {
@@ -37,8 +35,6 @@ public class VisitorTypeDeclaration {
     public static void visitInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx, Interface clasificador, String nombrePaquete){
         clasificador.setNombre(ctx.IDENTIFIER().getText());
         clasificador.setTipo("Interface");//valor auxiliar para StringTemplate
-        clasificador.setIndice(Clasificador.contadorClasificadores);
-        Clasificador.contadorClasificadores++;
         clasificador.setNombrePaquete(nombrePaquete);
 
         //Guarda el nombre de las interfaces de las que hereda, si tiene

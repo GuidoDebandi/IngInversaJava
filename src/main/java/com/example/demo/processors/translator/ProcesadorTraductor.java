@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.processors.translator;
 
 import com.example.demo.model.translator.*;
 import com.example.demo.model.translator.Package;
@@ -50,10 +50,18 @@ public class ProcesadorTraductor {
                 if(((Clase)c).getRelacionesContenidas().size()>0){
                     //recorro todas las relaciones de la clase
                     for (Relacion r : ((Clase)c).getRelacionesContenidas()) {
+                        r.setTipo("unidireccional");
                         //busco entre todos los clasificadores, cual es el destino y lo seteo
                         for (Clasificador posibleDestino : clasificadorList) {
                             if(posibleDestino.getNombre().equals(r.getNombreClasificadorDestino())){
                                 r.setDestino(posibleDestino);
+                                if(((Clase)posibleDestino).getRelacionesContenidas().size()>0){
+                                    for (Relacion r2: ((Clase)posibleDestino).getRelacionesContenidas()){
+                                        if(r.getDestino().getNombre().equals(r2.getOrigen().getNombre())){
+                                            r.setTipo("bidireccional");
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -76,10 +84,18 @@ public class ProcesadorTraductor {
             //crea el paquete
             if(!(diagrama.getPackagesContenidos().size()>0)){
                 //crea el primer paquete de todos, y le agrega el clasificador actual
-                Package paquete = new Package();
-                paquete.setNombre(c.getNombrePaquete());
-                paquete.getClasificadoresContenidos().add(c);
-                diagrama.getPackagesContenidos().add(paquete);
+
+                if(!(c.isEsControlador() || c.isEsBase() || c.isEsRepositorio() || c.isEsServicio())){
+                    Package paquete = new Package();
+                    paquete.setIndice(Package.contadorClasificadores);
+                    Package.contadorClasificadores++;
+                    Clasificador.contadorClasificadores = 0;
+                    paquete.setNombre(c.getNombrePaquete());
+                    c.setIndice(Clasificador.contadorClasificadores);
+                    Clasificador.contadorClasificadores++;
+                    paquete.getClasificadoresContenidos().add(c);
+                    diagrama.getPackagesContenidos().add(paquete);
+                }
             }else{
                     /*
                     revisa que el paquete ya haya sido creado:
@@ -89,15 +105,27 @@ public class ProcesadorTraductor {
                 boolean controlAux = true; //vale true si el paquete no existe, false caso contrario
                 for (Package paquete : diagrama.getPackagesContenidos()) {
                     if(paquete.getNombre().equals(c.getNombrePaquete())){
-                        paquete.getClasificadoresContenidos().add(c);
-                        controlAux = false;
+                        if(!(c.isEsBase())){
+
+                            c.setIndice(Clasificador.contadorClasificadores);
+                            Clasificador.contadorClasificadores++;
+                            paquete.getClasificadoresContenidos().add(c);
+                            controlAux = false;
+                        }
                     }
                 }
                 if(controlAux){
-                    Package paquete = new Package();
-                    paquete.setNombre(c.getNombrePaquete());
-                    paquete.getClasificadoresContenidos().add(c);
-                    diagrama.getPackagesContenidos().add(paquete);
+                    if(!(c.isEsControlador() || c.isEsBase() || c.isEsRepositorio() || c.isEsServicio())){
+                        Package paquete = new Package();
+                        paquete.setIndice(Package.contadorClasificadores);
+                        Package.contadorClasificadores++;
+                        Clasificador.contadorClasificadores = 0;
+                        paquete.setNombre(c.getNombrePaquete());
+                        c.setIndice(Clasificador.contadorClasificadores);
+                        Clasificador.contadorClasificadores++;
+                        paquete.getClasificadoresContenidos().add(c);
+                        diagrama.getPackagesContenidos().add(paquete);
+                    }
                 }
             }
         }

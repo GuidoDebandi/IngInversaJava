@@ -7,6 +7,7 @@ import com.example.demo.gen.java.JavaParser;
 import com.example.demo.gen.translator.VisitorTraductorMain;
 import com.example.demo.model.translator.*;
 
+import com.example.demo.processors.translator.ProcesadorTraductor;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -25,7 +26,7 @@ public class mainTraductor {
 
         List<ParseTree> arboles = new ArrayList<>();
         DiagramaClases diagrama = new DiagramaClases();
-        final File carpeta = new File("C:\\Users\\Guido\\eclipse-workspace\\IngInversaJava\\src\\main\\resources\\Datos"); //direccion de la carpeta
+        final File carpeta = new File("C:\\Users\\Usuario\\eclipse-workspace\\IngInversaJava\\src\\main\\resources\\datos"); //direccion de la carpeta
         try {
             listarFicherosPorCarpeta(carpeta,arboles);
             ProcesadorTraductor.procesar(analizarArboles(arboles),diagrama);
