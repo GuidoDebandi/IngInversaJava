@@ -25,7 +25,7 @@ public class Relacion{
 
 
 
-    private String tipo; //falta
+    private String tipo;
     private String multiplicidad;
 
 

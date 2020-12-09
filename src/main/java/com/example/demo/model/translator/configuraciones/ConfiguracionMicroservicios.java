@@ -7,8 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class ConfiguracionMicroservicios {
 
-    private String ipDiscovery="http://localhost";
-    private int puertoDiscovery=8761;
+    private String ipDiscovery;
+    private String puertoDiscovery;
 }

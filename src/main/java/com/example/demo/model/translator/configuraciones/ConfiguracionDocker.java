@@ -9,11 +9,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class ConfiguracionDocker {
 
     private String nombreContenedor;
-    private  int puertoInterior;
-    private TipoReinicio tipoReinicio= TipoReinicio.siempre;
+    private String puertoInterior;
+    private String tipoReinicio;
     private String nombreImagen;
 
 }

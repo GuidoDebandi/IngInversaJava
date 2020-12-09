@@ -9,8 +9,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class ConfiguracionLenguaje {
 
     private String version;
-    private Lenguaje lenguaje= Lenguaje.java;
+    private String lenguaje = "java";
 }
