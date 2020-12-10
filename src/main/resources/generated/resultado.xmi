@@ -2,66 +2,72 @@
 <diagramaClasesCompleto:DiagramaClases xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagramaClasesCompleto="http://www.example.org/diagramaClasesCompleto"
     xsi:schemaLocation="http://www.example.org/diagramaClasesCompleto diagramaClasesCompleto.ecore">
-          <packages_contenidos nombre="entities">
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Autor" esAuditable="true">
-                 <atributos_contenidos nombre="nombre" visibilidad="private" tipo="String" pseudonimo="nombre"/>
-                 <atributos_contenidos nombre="apellido" visibilidad="private" tipo="String" pseudonimo="apellido"/>
-                 <atributos_contenidos nombre="biografia" visibilidad="private" tipo="String" pseudonimo="biografia"/>
+        <packages_contenidos nombre="entities">
+          <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Autor" esAuditable="true">
+               <atributos_contenidos nombre="nombre" visibilidad="private" tipo="String" pseudonimo="nombre"/>
+               <atributos_contenidos nombre="apellido" visibilidad="private" tipo="String" pseudonimo="apellido"/>
+               <atributos_contenidos nombre="biografia" visibilidad="private" tipo="String" pseudonimo="biografia"/>
 
-            </clasificadores_contenidos>
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Domicilio" esAuditable="true">
-                 <atributos_contenidos nombre="calle" visibilidad="private" tipo="String" pseudonimo="calle"/>
-                 <atributos_contenidos nombre="numero" visibilidad="private" tipo="int" pseudonimo="numero"/>
+          </clasificadores_contenidos>
+          <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Domicilio" esAuditable="true">
+               <atributos_contenidos nombre="calle" visibilidad="private" tipo="String" pseudonimo="calle"/>
+               <atributos_contenidos nombre="numero" visibilidad="private" tipo="int" pseudonimo="numero"/>
 
-                <relaciones_contenidas nombre="localidad" tipo="unidireccional" visibilidad="private" multiplicidad="manyToOne"  destino="//@packages_contenidos.0/@clasificadores_contenidos.3" origen="//@packages_contenidos.0/@clasificadores_contenidos.1"/>
+              <relaciones_contenidas nombre="localidad" tipo="unidireccional" visibilidad="private" multiplicidad="manyToOne"  destino="//@packages_contenidos.0/@clasificadores_contenidos.3" origen="//@packages_contenidos.0/@clasificadores_contenidos.1"/>
 
-            </clasificadores_contenidos>
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Libro" esAuditable="true">
-                 <atributos_contenidos nombre="titulo" visibilidad="private" tipo="String" pseudonimo="titulo"/>
-                 <atributos_contenidos nombre="fecha" visibilidad="private" tipo="int" pseudonimo="fecha"/>
-                 <atributos_contenidos nombre="genero" visibilidad="private" tipo="String" pseudonimo="genero"/>
-                 <atributos_contenidos nombre="paginas" visibilidad="private" tipo="int" pseudonimo="paginas"/>
+          </clasificadores_contenidos>
+          <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Libro" esAuditable="true">
+               <atributos_contenidos nombre="titulo" visibilidad="private" tipo="String" pseudonimo="titulo"/>
+               <atributos_contenidos nombre="fecha" visibilidad="private" tipo="int" pseudonimo="fecha"/>
+               <atributos_contenidos nombre="genero" visibilidad="private" tipo="String" pseudonimo="genero"/>
+               <atributos_contenidos nombre="paginas" visibilidad="private" tipo="int" pseudonimo="paginas"/>
 
-                <relaciones_contenidas nombre="autores" tipo="unidireccional" visibilidad="private" multiplicidad="manyToMany"  destino="//@packages_contenidos.0/@clasificadores_contenidos.0" origen="//@packages_contenidos.0/@clasificadores_contenidos.2"/>
+              <relaciones_contenidas nombre="autores" tipo="unidireccional" visibilidad="private" multiplicidad="manyToMany"  destino="//@packages_contenidos.0/@clasificadores_contenidos.0" origen="//@packages_contenidos.0/@clasificadores_contenidos.2"/>
 
-            </clasificadores_contenidos>
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Localidad" esAuditable="true">
-                 <atributos_contenidos nombre="denominacion" visibilidad="private" tipo="String" pseudonimo="denominacion" esAuditable="true"/>
+          </clasificadores_contenidos>
+          <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Localidad" esAuditable="true">
+               <atributos_contenidos nombre="denominacion" visibilidad="private" tipo="String" pseudonimo="denominacion" esAuditable="true"/>
 
-            </clasificadores_contenidos>
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Persona" esAuditable="true" tieneABM="true">
-                <realizaciones_contenidas destino="//@packages_contenidos.0/@clasificadores_contenidos.5" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
+          </clasificadores_contenidos>
+          <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Clase" nombre="Persona" esAuditable="true" tieneABM="true">
+              <realizaciones_contenidas destino="//@packages_contenidos.0/@clasificadores_contenidos.5" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
 
-                 <atributos_contenidos nombre="asd" visibilidad="public" tipo="int" pseudonimo="asd" esFinal="true"/>
-                 <atributos_contenidos nombre="nombre" visibilidad="private" tipo="String" pseudonimo="nombre"/>
-                 <atributos_contenidos nombre="apellido" visibilidad="private" tipo="String" pseudonimo="apellido"/>
-                 <atributos_contenidos nombre="dni" visibilidad="private" tipo="int" pseudonimo="dni"/>
+               <atributos_contenidos nombre="asd" visibilidad="public" tipo="int" pseudonimo="asd" esFinal="true"/>
+               <atributos_contenidos nombre="nombre" visibilidad="private" tipo="String" pseudonimo="nombre"/>
+               <atributos_contenidos nombre="apellido" visibilidad="private" tipo="String" pseudonimo="apellido"/>
+               <atributos_contenidos nombre="dni" visibilidad="private" tipo="int" pseudonimo="dni"/>
 
-                 <operaciones_contenidas nombre="caminar" visibilidad="public" tipoRetorno="void">
-                 </operaciones_contenidas>
-                 <operaciones_contenidas nombre="contar" visibilidad="public" tipoRetorno="String">
-                        <parametros_contenidos xsi:type="diagramaClasesCompleto:Atributo" nombre="x" tipo="int"/>
+               <operaciones_contenidas nombre="caminar" visibilidad="public" tipoRetorno="void">
+               </operaciones_contenidas>
+               <operaciones_contenidas nombre="contar" visibilidad="public" tipoRetorno="String">
+                      <parametros_contenidos xsi:type="diagramaClasesCompleto:Atributo" nombre="x" tipo="int"/>
 
-                 </operaciones_contenidas>
-                 <operaciones_contenidas nombre="cantar" visibilidad="public" tipoRetorno="void" esAbstracta="true">
-                 </operaciones_contenidas>
+               </operaciones_contenidas>
+               <operaciones_contenidas nombre="cantar" visibilidad="public" tipoRetorno="void" esAbstracta="true">
+               </operaciones_contenidas>
 
-                <relaciones_contenidas nombre="domicilio" tipo="bidireccional" visibilidad="private" multiplicidad="oneToOne"  destino="//@packages_contenidos.0/@clasificadores_contenidos.1" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
-                <relaciones_contenidas nombre="libros" tipo="bidireccional" visibilidad="private" multiplicidad="oneToMany"  destino="//@packages_contenidos.0/@clasificadores_contenidos.2" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
+              <relaciones_contenidas nombre="domicilio" tipo="bidireccional" visibilidad="private" multiplicidad="oneToOne"  destino="//@packages_contenidos.0/@clasificadores_contenidos.1" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
+              <relaciones_contenidas nombre="libros" tipo="bidireccional" visibilidad="private" multiplicidad="oneToMany"  destino="//@packages_contenidos.0/@clasificadores_contenidos.2" origen="//@packages_contenidos.0/@clasificadores_contenidos.4"/>
 
-            </clasificadores_contenidos>
-            <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Interface" nombre="Volador">
-                 <atributos_contenidos nombre="hacer" visibilidad="private" tipo="String" pseudonimo=""/>
+          </clasificadores_contenidos>
+          <clasificadores_contenidos xsi:type="diagramaClasesCompleto:Interface" nombre="Volador">
+               <atributos_contenidos nombre="hacer" visibilidad="private" tipo="String" pseudonimo=""/>
 
-                 <operaciones_contenidas nombre="canto" visibilidad="public" tipoRetorno="String">
-                 </operaciones_contenidas>
-                 <operaciones_contenidas nombre="bailo" visibilidad="public" tipoRetorno="void">
-                        <parametros_contenidos xsi:type="diagramaClasesCompleto:Atributo" nombre="x" tipo="int"/>
+               <operaciones_contenidas nombre="canto" visibilidad="public" tipoRetorno="String">
+               </operaciones_contenidas>
+               <operaciones_contenidas nombre="bailo" visibilidad="public" tipoRetorno="void">
+                      <parametros_contenidos xsi:type="diagramaClasesCompleto:Atributo" nombre="x" tipo="int"/>
 
-                 </operaciones_contenidas>
+               </operaciones_contenidas>
 
-            </clasificadores_contenidos>
+          </clasificadores_contenidos>
 
-          </packages_contenidos>
+        </packages_contenidos>
+
+        <artefacto_contenido nombre="apiAlberto-Paginacion" grupoId="com.example.colmena.paginacion" artefactotId="apiAlberto-Paginacion" descripcion="Demo project for Spring Boot" version="0.0.1-SNAPSHOT"/>
+
+        <configuracionlenguaje version="14" lenguaje="java"/>
+
+        <configuraciondb dbNombre="alumno_db" dbUsuario="root" dbPuerto="3306" ip="localhost" dbContrasena="" serverPuerto="9000" tipoProveedor="mysql"/>
 
 </diagramaClasesCompleto:DiagramaClases>

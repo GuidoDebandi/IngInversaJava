@@ -1,13 +1,6 @@
 
 configuracionLenguajeContenida(configuracion) ::= <<
-
-      <configuracionlenguaje
-
-        version="$configuracion.version$"
-        lenguaje="$configuracion.lenguaje$"
-
-      />
-
+<configuracionlenguaje version="$configuracion.version$" lenguaje="$configuracion.lenguaje$"/>
 
 >>
 

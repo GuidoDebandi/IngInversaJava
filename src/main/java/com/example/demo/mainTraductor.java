@@ -4,6 +4,12 @@ package com.example.demo;
 
 import com.example.demo.gen.java.JavaLexer;
 import com.example.demo.gen.java.JavaParser;
+import com.example.demo.gen.pomxml.XMLLexer;
+import com.example.demo.gen.pomxml.XMLParser;
+import com.example.demo.gen.properties.PropertiesLexer;
+import com.example.demo.gen.properties.PropertiesParser;
+import com.example.demo.gen.translator.VisitorPom;
+import com.example.demo.gen.translator.VisitorProperties;
 import com.example.demo.gen.translator.VisitorTraductorMain;
 import com.example.demo.model.translator.*;
 
@@ -26,10 +32,14 @@ public class mainTraductor {
 
         List<ParseTree> arboles = new ArrayList<>();
         DiagramaClases diagrama = new DiagramaClases();
-        final File carpeta = new File("C:\\Users\\Usuario\\eclipse-workspace\\IngInversaJava\\src\\main\\resources\\datos"); //direccion de la carpeta
+
+        final File carpeta = new File("C:\\Users\\Usuario\\eclipse-workspace\\IngInversaJava\\src\\main\\resources\\datos\\src"); //direccion de la carpeta
         try {
             listarFicherosPorCarpeta(carpeta,arboles);
+            visitarPomProperties(diagrama);
             ProcesadorTraductor.procesar(analizarArboles(arboles),diagrama);
+
+
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -48,6 +58,7 @@ public class mainTraductor {
         }catch (IOException e){
             e.printStackTrace();
         }
+
     }
     public static void listarFicherosPorCarpeta(final File carpeta, List<ParseTree> arboles) throws IOException {
         for (final File ficheroEntrada : carpeta.listFiles()) {
@@ -56,8 +67,7 @@ public class mainTraductor {
             } else {
                 String fuente =  ficheroEntrada.getPath();
                 InputStream is = new FileInputStream(fuente);
-                CharStream cs = null;
-                cs = CharStreams.fromStream(is);
+                CharStream cs = CharStreams.fromStream(is);
                 JavaLexer lexer = new JavaLexer(cs);
                 CommonTokenStream tokenStream = new CommonTokenStream(lexer);
                 JavaParser parser = new JavaParser(tokenStream);
@@ -74,8 +84,35 @@ public class mainTraductor {
             vt.setClasificador(clasificador);
             vt.visit(arbol);
             clasificadorList.add(vt.getClasificador());
-
         }
         return clasificadorList;
+    }
+    public static void visitarPomProperties(DiagramaClases diagrama){
+        try{
+            String fuente =  "C:\\Users\\Usuario\\eclipse-workspace\\IngInversaJava\\src\\main\\resources\\datos\\pom.xml";
+            InputStream is = new FileInputStream(fuente);
+            CharStream cs = CharStreams.fromStream(is);
+            XMLLexer lexerXML = new XMLLexer(cs);
+            CommonTokenStream tokenStream = new CommonTokenStream(lexerXML);
+            XMLParser parserXML = new XMLParser(tokenStream);
+            ParseTree tree = parserXML.document();
+            VisitorPom visitorPom = new VisitorPom();
+            visitorPom.visit(tree);
+            diagrama.setArtefactoContenido(visitorPom.getArtefacto());
+            diagrama.getConfiguracionesLenguaje().add(visitorPom.getConfiguracionLenguaje());
+            fuente = "C:\\Users\\Usuario\\eclipse-workspace\\IngInversaJava\\src\\main\\resources\\datos\\application.properties";
+            is = new FileInputStream(fuente);
+            cs = CharStreams.fromStream(is);
+            PropertiesLexer lexerProperties = new PropertiesLexer(cs);
+            tokenStream = new CommonTokenStream(lexerProperties);
+            PropertiesParser parserProperties = new PropertiesParser(tokenStream);
+            tree = parserProperties.propertiesFile();
+            VisitorProperties visitorProperties = new VisitorProperties();
+            visitorProperties.visit(tree);
+            diagrama.getConfiguracionesDB().add(visitorProperties.getConfiguracionDB());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

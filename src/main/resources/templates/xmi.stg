@@ -12,6 +12,9 @@ traducir(diagrama) ::= <<
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagramaClasesCompleto="http://www.example.org/diagramaClasesCompleto"
     xsi:schemaLocation="http://www.example.org/diagramaClasesCompleto diagramaClasesCompleto.ecore">
         $diagrama.packagesContenidos:packageContenido()$
+        $diagrama.artefactoContenido:artefactoContenido()$
+        $diagrama.configuracionesLenguaje:configuracionLenguajeContenida()$
+        $diagrama.configuracionesDB:configuracionDBContenida()$
 </diagramaClasesCompleto:DiagramaClases>
 >>
 
